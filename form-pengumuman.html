@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Form Tambah Pengumuman Perpustakaan">
+    <meta name="author" content="Perpustakaan">
+    <title>Tambah Pengumuman - Perpustakaan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            font-family: "Quicksand", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            background-color: #f8f9fa;
+        }
+
+        .content {
+            background-color: #f8f9fa;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23e9ecef" stroke-width="0.5"/></svg>');
+            background-size: 20px 20px;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .btn-primary {
+            background: linear-gradient(120deg, #3498db, #2980b9);
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+        }
+
+        .btn-warning {
+            background: linear-gradient(120deg, #f39c12, #e67e22);
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Styling for sidebar, adjust if needed based on your project's assets */
+        .sidebar {
+            background-color: #f8f9fa !important;
+            border-right: 1px solid #e0e6ed;
+        }
+
+        .sidebar a {
+            color: #2c3e50;
+        }
+
+        .sidebar a.active {
+            background-color: #3498db;
+            color: white !important;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="d-flex">
+        <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <img src="assets/udb.png" class="bi me-2" height="32" alt="Perpustakaan Logo">
+                <span class="fs-4">Perpustakaan</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="koleksi-buku.html" class="nav-link link-dark" aria-current="page">
+                        <img class="bi me-2" width="16" height="16"
+                            src="https://img.icons8.com/?id=85767&format=png&color=000000" alt>Koleksi Buku
+                    </a>
+                </li>
+                <li>
+                    <a href="peminjaman.html" class="nav-link link-dark">
+                        <img class="bi me-2" width="16" height="16"
+                            src="https://img.icons8.com/?size=100&id=bDrb5MdYaEje&format=png&color=ffffff"
+                            alt>Peminjaman
+                    </a>
+                </li>
+                <li>
+                    <a href="pengumuman.html" class="nav-link active">
+                        <img class="bi me-2" width="16" height="16"
+                            src="https://img.icons8.com/?size=100&id=77&format=png&color=000000" alt>Pengumuman
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
+                    id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://img.icons8.com/?size=100&id=23400&format=png&color=000000" alt width="32"
+                        height="32" class="rounded-circle me-2">
+                    <strong>Admin Perpustakaan 1</strong>
+                </a>
+                <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                    <li>
+                        <a class="dropdown-item" href="profile.html">Profile</a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="login.html">Sign
+                            out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content p-4 flex-grow-1">
+            <h2 class="mb-4">Tambah Pengumuman Baru</h2>
+            <div class="container py-3">
+                <div class="form-container">
+                    <form>
+                        <div class="row g-4">
+                            <div class="col-12">
+                                <label for="judulPengumuman" class="form-label">Judul Pengumuman</label>
+                                <input type="text" class="form-control" id="judulPengumuman"
+                                    placeholder="Masukkan judul pengumuman" required>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="kontenPengumuman" class="form-label">Konten Pengumuman</label>
+                                <textarea class="form-control" id="kontenPengumuman" rows="8"
+                                    placeholder="Tuliskan isi pengumuman di sini..." required></textarea>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="tanggalPublikasi" class="form-label">Tanggal Publikasi</label>
+                                <input type="date" class="form-control" id="tanggalPublikasi" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="statusPengumuman" class="form-label">Status Pengumuman</label>
+                                <select class="form-select" id="statusPengumuman">
+                                    <option value="Aktif" selected>Aktif</option>
+                                    <option value="Tidak Aktif">Tidak Aktif</option>
+                                    <option value="Draf">Draf</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 mt-4">
+                                <div class="d-flex justify-content-between">
+                                    <a href="pengumuman.html" class="btn btn-outline-secondary">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="me-2" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                                        </svg>
+                                        Kembali
+                                    </a>
+                                    <button type="submit" class="btn btn-primary">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="me-2" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z" />
+                                            <path
+                                                d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z" />
+                                        </svg>
+                                        Simpan Pengumuman
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script>
+        // Set the default publication date to today
+        document.addEventListener('DOMContentLoaded', function () {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = (today.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-indexed
+            const day = today.getDate().toString().padStart(2, '0');
+            document.getElementById('tanggalPublikasi').value = `${year}-${month}-${day}`;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Tambah Peminjaman - Perpustakaan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            font-family: "Quicksand", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            background-color: #f8f9fa;
+        }
+        
+        .content {
+            background-color: #f8f9fa;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23e9ecef" stroke-width="0.5"/></svg>');
+            background-size: 20px 20px;
+            min-height: 100vh;
+        }
+        
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+        }
+        
+        .book-cover-preview {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 1px solid #dee2e6;
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(120deg, #3498db, #2980b9);
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+        }
+        
+        .btn-warning {
+            background: linear-gradient(120deg, #f39c12, #e67e22);
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+        }
+        
+        .user-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #3498db;
+            padding: 2px;
+        }
+        
+        .info-card {
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+        
+        .info-card h6 {
+            color: #2c3e50;
+            font-weight: 700;
+        }
+        
+        .info-card p {
+            color: #7f8c8d;
+            margin-bottom: 0;
+        }
+        
+        .status-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .book-detail {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="d-flex">
+            <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-light"
+                style="width: 280px;">
+                <a href="/"
+                    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <img src="assets/udb.png" class="bi me-2" height="32">
+                    <span class="fs-4">Perpustakaan</span>
+                </a>
+                <hr>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="koleksi-buku.html" class="nav-link link-dark"
+                            aria-current="page">
+                            <img class="bi me-2" width="16" height="16"
+                                src="https://img.icons8.com/?id=85767&format=png&color=000000"
+                                alt>Koleksi Buku
+                        </a>
+                    </li>
+                    <li>
+                        <a href="peminjaman.html" class="nav-link active">
+                            <img class="bi me-2" width="16" height="16"
+                                src="https://img.icons8.com/?size=100&id=bDrb5MdYaEje&format=png&color=ffffff"
+                                alt>Peminjaman
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pengumuman.html" class="nav-link link-dark">
+                            <img class="bi me-2" width="16" height="16"
+                                src="https://img.icons8.com/?size=100&id=77&format=png&color=000000"
+                                alt>Pengumuman
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+                <div class="dropdown">
+                    <a href="#"
+                        class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
+                        id="dropdownUser2" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <img
+                            src="https://img.icons8.com/?size=100&id=23400&format=png&color=000000"
+                            alt width="32" height="32"
+                            class="rounded-circle me-2">
+                        <strong>Admin Perpustakaan 1</strong>
+                    </a>
+                    <ul class="dropdown-menu text-small shadow"
+                        aria-labelledby="dropdownUser2">
+                        <li>
+                            <a class="dropdown-item" href="profile.html">Profile</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="login.html">Sign
+                                out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        <div class="content p-4 flex-grow-1">
+            <h2 class="mb-4">Tambah Peminjaman Buku</h2>
+            <div class="container py-3">
+                <div class="form-container">
+                    <form>
+                        <div class="row g-4">
+                            <!-- Bagian Anggota -->
+                            <div class="col-md-6">
+                                <h4 class="mb-3">Data Anggota</h4>
+                                <div class="mb-3">
+                                    <label class="form-label">Cari Anggota</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Nama atau NIM anggota">
+                                        <button class="btn btn-outline-secondary" type="button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="info-card mb-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMzQ5OGRiIj48cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMCAzYzEuLjY2IDAgMyAzLjEzIDMgN3MtMS4zNCAzLTMgMy0zLTMuMTMtMy03IDEuMzQtMyAzLTN6bTAgMTJjLTIuMjEgMC00LTEuNzktNC00czEuNzktNCA0LTQgNCAxLjc5IDQgNC0xLjc5IDQtNCA0eiIvPjwvc3ZnPg==" class="user-avatar me-3">
+                                        <div>
+                                            <h5 class="mb-0">Ahmad Sutisna</h5>
+                                            <p class="mb-0">NIM: 20202021</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h6>Program Studi</h6>
+                                            <p>Teknik Informatika</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <h6>Status</h6>
+                                            <p><span class="badge bg-success">Aktif</span></p>
+                                        </div>
+                                        <div class="col-12">
+                                            <h6>Peminjaman Aktif</h6>
+                                            <p>2 buku sedang dipinjam</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Bagian Buku -->
+                            <div class="col-md-6">
+                                <h4 class="mb-3">Data Buku</h4>
+                                <div class="mb-3">
+                                    <label class="form-label">Cari Buku</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Judul, penulis, atau ISBN">
+                                        <button class="btn btn-outline-secondary" type="button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="book-detail mb-4">
+                                    <div class="d-flex">
+                                        <div class="me-3">
+                                            <img src="https://cdn.gramedia.com/uploads/items/591701404_sapiens.jpg" alt="Cover" class="book-cover-preview">
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h5 class="mb-1">Sapiens</h5>
+                                            <p class="mb-1"><strong>Penulis:</strong> Yuval Noah Harari</p>
+                                            <p class="mb-1"><strong>Penerbit:</strong> Gramedia</p>
+                                            <p class="mb-1"><strong>Tahun:</strong> 2013</p>
+                                            <p class="mb-1"><strong>Kategori:</strong> Sejarah</p>
+                                            <p class="mb-1"><strong>Stok Tersedia:</strong> 5 buku</p>
+                                            <p class="mb-0"><strong>ISBN:</strong> 978-602-424-694-5</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Detail Peminjaman -->
+                            <div class="col-12">
+                                <h4 class="mb-3">Detail Peminjaman</h4>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label">Tanggal Pinjam</label>
+                                        <input type="date" class="form-control" value="2024-05-29">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Tanggal Kembali</label>
+                                        <input type="date" class="form-control" value="2024-06-12">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Durasi Peminjaman</label>
+                                        <input type="text" class="form-control" value="14 hari" readonly>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="form-label">Catatan (Opsional)</label>
+                                        <textarea class="form-control" rows="2" placeholder="Tambahkan catatan jika diperlukan"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Tombol Aksi -->
+                            <div class="col-12 mt-4">
+                                <div class="d-flex justify-content-between">
+                                    <a href="peminjaman.html" class="btn btn-outline-secondary">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-2" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                                        </svg>
+                                        Kembali
+                                    </a>
+                                    <button type="submit" class="btn btn-primary">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-2" viewBox="0 0 16 16">
+                                            <path d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z"/>
+                                            <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+                                        </svg>
+                                        Simpan Peminjaman
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script>
+        // Menghitung tanggal kembali otomatis (14 hari setelah pinjam)
+        document.querySelector('input[type="date"]').addEventListener('change', function() {
+            const pinjamDate = new Date(this.value);
+            if (!isNaN(pinjamDate.getTime())) {
+                const kembaliDate = new Date(pinjamDate);
+                kembaliDate.setDate(kembaliDate.getDate() + 14);
+                
+                // Format tanggal ke YYYY-MM-DD
+                const formattedDate = kembaliDate.toISOString().split('T')[0];
+                document.querySelectorAll('input[type="date"]')[1].value = formattedDate;
+                
+                // Update durasi
+                document.querySelectorAll('input[type="text"]')[2].value = "14 hari";
+            }
+        });
+        
+        // Set tanggal default
+        const today = new Date();
+        const formattedToday = today.toISOString().split('T')[0];
+        document.querySelector('input[type="date"]').value = formattedToday;
+        
+        const kembaliDate = new Date(today);
+        kembaliDate.setDate(kembaliDate.getDate() + 14);
+        const formattedKembali = kembaliDate.toISOString().split('T')[0];
+        document.querySelectorAll('input[type="date"]')[1].value = formattedKembali;
+    </script>
+</body>
+
+</html>
